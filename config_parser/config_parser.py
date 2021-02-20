@@ -115,14 +115,14 @@ class ConfigParser(object):
         host = self._config_json.get("host")
         port = self._config_json.get("port")
         scheme = self._config_json.get("scheme")
-        self.tasks = self.process_tasks_dict(tasks_dict)
-        self.users = self.process_users_dict(users_dict)
-        self.config = Config(
+        self._tasks = self.process_tasks_dict(tasks_dict)
+        self._users = self.process_users_dict(users_dict)
+        self._config = Config(
             host=host,
             port=port,
             scheme=scheme,
-            task_dict=self.tasks,
-            user_dict=self.users,
+            task_dict=self._tasks,
+            user_dict=self._users,
         )
 
     @staticmethod
@@ -160,7 +160,7 @@ class ConfigParser(object):
         return users
 
     def get_task(self, task_name: str) -> Task:
-        return self.tasks.get(task_name)
+        return self._tasks.get(task_name)
 
     def get_config(self) -> Config:
-        return self.config
+        return self._config
