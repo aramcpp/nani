@@ -5,7 +5,10 @@
     "tasks": {
         "task_get_home": {
             "method": "GET",
-            "endpoint": "/"
+            "endpoint": "/",
+            "headers": {
+                "Accept": "*/*"
+            }
         },
         "task_get_profile": {
             "method": "GET",
@@ -14,10 +17,13 @@
         "task_login": {
             "method": "POST",
             "endpoint": "/login",
-            "body": {
+            "headers": {
+                "Accept": "*/*"
+            },
+            "payload": {
                 "type": "multipart...",
-                "username": "",
-                "password": ""
+                "username": "a",
+                "password": "b"
             }
         }
     },
@@ -35,8 +41,7 @@
                 "task_get_home",
                 "task_login",
                 "task_get_profile"
-            ],
-            "rate": 3
+            ]
         }
     }
 }
