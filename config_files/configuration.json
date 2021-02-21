@@ -1,0 +1,47 @@
+{
+    "host": "localhost",
+    "port": 80,
+    "scheme": "http",
+    "tasks": {
+        "task_get_home": {
+            "method": "GET",
+            "endpoint": "/",
+            "headers": {
+                "Accept": "*/*"
+            }
+        },
+        "task_get_profile": {
+            "method": "GET",
+            "endpoint": "/profile"
+        },
+        "task_login": {
+            "method": "POST",
+            "endpoint": "/login",
+            "headers": {
+                "Accept": "*/*"
+            },
+            "payload": {
+                "type": "multipart...",
+                "username": "a",
+                "password": "b"
+            }
+        }
+    },
+    "users": {
+        "random_user": {
+            "tasks": [
+                "task_get_home",
+                "task_get_home",
+                "task_get_home"
+            ],
+            "rate": 1
+        },
+        "adekvat_user": {
+            "tasks": [
+                "task_get_home",
+                "task_login",
+                "task_get_profile"
+            ]
+        }
+    }
+}
